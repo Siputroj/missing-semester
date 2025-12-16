@@ -1,71 +1,61 @@
 ---
 layout: lecture
-title: "Automation"
+title: "Otomasi"
 presenter: Jose
 video:
   aspect: 56.25
   id: BaLlAaHz-1k
 ---
 
-Sometimes you write a script that does something but you want for it to run periodically, say a backup task. You can always write an *ad hoc* solution that runs in the background and comes online periodically. However, most UNIX systems come with the cron daemon which can run task with a frequency up to a minute based on simple rules.
+Kadang Anda menulis skrip yang melakukan sesuatu tetapi ingin skrip itu berjalan berkala, misalnya tugas pencadangan. Anda bisa saja menulis solusi *ad hoc* yang berjalan di latar belakang dan aktif secara periodik. Namun, sebagian besar sistem UNIX sudah memiliki daemon cron yang dapat menjalankan tugas dengan frekuensi hingga setiap menit berdasarkan aturan sederhana.
 
-On most UNIX systems the cron daemon, `crond` will be running by default but you can always check using `ps aux | grep crond`.
+Pada kebanyakan sistem UNIX daemon cron, `crond`, berjalan secara bawaan, tetapi Anda bisa memeriksanya dengan `ps aux | grep crond`.
 
-## The crontab
+## Crontab
 
-The configuration file for cron can be displayed running `crontab -l` edited running `crontab -e` The time format that cron uses are five space separated fields along with the user and command
+Berkas konfigurasi untuk cron bisa dilihat dengan `crontab -l` dan diedit dengan `crontab -e`. Format waktu yang digunakan cron terdiri atas lima kolom dipisah spasi diikuti pengguna dan perintah:
 
-- **minute** -  What minute of the hour the command will run on,
-     and is between '0' and '59'
-- **hour** -    This controls what hour the command will run on, and is specified in
-         the 24 hour clock, values must be between 0 and 23 (0 is midnight)
-- **dom** - This is the Day of Month, that you want the command run on, e.g. to
-     run a command on the 19th of each month, the dom would be 19.
-- **month** -   This is the month a specified command will run on, it may be specified
-     numerically (0-12), or as the name of the month (e.g. May)
-- **dow** - This is the Day of Week that you want a command to be run on, it can
-     also be numeric (0-7) or as the name of the day (e.g. sun).
-- **user** -    This is the user who runs the command.
-- **command** - This is the command that you want run. This field may contain
-     multiple words or spaces.
+- **minute** — menit pada jam saat perintah dijalankan, antara 0–59
+- **hour** — jam pada hari (format 24 jam, 0–23; 0 berarti tengah malam)
+- **dom** — *day of month*, tanggal dalam bulan, misalnya 19 agar jalan setiap tanggal 19
+- **month** — bulan ketika perintah dijalankan, bisa angka (0–12) atau nama bulan (mis. May)
+- **dow** — *day of week*, hari dalam minggu, bisa angka (0–7) atau nama hari (mis. sun)
+- **user** — pengguna yang menjalankan perintah
+- **command** — perintah yang ingin dijalankan; boleh berisi banyak kata/spasi
 
-Note that using an asterisk `*` means all and using an asterisk followed by a slash and number means every nth value. So `*/5` means every five. Some examples are
+Tanda bintang `*` berarti semua nilai, dan pola `*/n` berarti tiap nilai ke-n. Jadi `*/5` berarti setiap lima satuan. Contoh:
 
 ```shell
-*/5   *    *   *   *       # Every five minutes
-  0   *    *   *   *       # Every hour at o'clock
-  0   9    *   *   *       # Every day at 9:00 am
-  0   9-17 *   *   *       # Every hour between 9:00am and 5:00pm
-  0   0    *   *   5       # Every Friday at 12:00 am
-  0   0    1   */2 *       # Every other month, the first day, 12:00am
+*/5   *    *   *   *       # Setiap lima menit
+  0   *    *   *   *       # Setiap jam tepat
+  0   9    *   *   *       # Setiap hari pukul 9:00 pagi
+  0   9-17 *   *   *       # Setiap jam antara 9:00–17:00
+  0   0    *   *   5       # Setiap Jumat pukul 00:00
+  0   0    1   */2 *       # Setiap dua bulan sekali, hari pertama, pukul 00:00
 ```
-You can find many more examples of common crontab schedules in [crontab.guru](https://crontab.guru/examples.html)
 
-## Shell environment and logging
+Lebih banyak contoh jadwal crontab bisa dilihat di [crontab.guru](https://crontab.guru/examples.html).
 
-A common pitfall when using cron is that it does not load the same environment scripts that common shells do such as `.bashrc`, `.zshrc`, &c and it does not log the output anywhere by default. Combined with the maximum frequency being one minute, it can become quite painful to debug cronscripts initially.
+## Lingkungan shell dan pencatatan
 
-To deal with the environment, make sure that you use absolute paths in all your scripts and modify your environment variables such as `PATH` so the script can run successfully. To simplify logging, a good recommendation is to write your crontab in a format like this
+Kesalahan umum saat memakai cron adalah cron tidak memuat skrip lingkungan yang biasa dibaca shell seperti `.bashrc`, `.zshrc`, dan tidak mencatat keluaran ke mana pun secara bawaan. Dikombinasikan dengan frekuensi minimum satu menit, debugging skrip cron bisa menyakitkan.
 
+Untuk urusan environment, pastikan Anda memakai path absolut di semua skrip dan mengubah variabel lingkungan seperti `PATH` agar skrip dapat berjalan. Untuk mempermudah pencatatan, tulis crontab dengan format seperti ini:
 
 ```shell
 * * * * *   user  /path/to/cronscripts/every_minute.sh >> /tmp/cron_every_minute.log 2>&1
 ```
 
-And write the script in a separate file. Remember that `>>` appends to the file and that `2>&1` redirects `stderr` to `stdout` (you might to want keep them separate though).
+Tuliskan skripnya di berkas terpisah. Ingat `>>` menambahkan ke berkas dan `2>&1` mengalihkan `stderr` ke `stdout` (meski Anda mungkin ingin memisahkannya).
 
 ## Anacron
 
-One caveat of using cron is that if the computer is powered off or asleep when the cron script should run then it is not executed. For frequent tasks this might be fine, but if a task runs less often, you may want to ensure that it is executed. [anacron](https://linux.die.net/man/8/anacron) works similar to `cron` except that the frequency is specified in days. Unlike cron, it does not assume that the machine is running continuously. Hence, it can be used on machines that aren't running 24 hours a day, to control regular jobs as daily, weekly, and monthly jobs.
+Catatan saat memakai cron: jika komputer dimatikan atau tidur ketika jadwal cron seharusnya berjalan, tugas tidak dieksekusi. Untuk tugas yang sering mungkin tidak masalah, tetapi untuk tugas yang jarang Anda mungkin ingin menjamin tetap dijalankan. [anacron](https://linux.die.net/man/8/anacron) bekerja mirip `cron` tetapi frekuensinya dalam hari. Tidak seperti cron, anacron tidak mengasumsikan mesin menyala terus-menerus, sehingga cocok untuk mesin yang tidak berjalan 24 jam namun tetap ingin menjalankan tugas harian, mingguan, atau bulanan.
 
+## Latihan
 
-## Exercises
-
-1. Make a script that looks every minute in your downloads folder for any file that is a picture (you can look into [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) or use a regular expression to match common extensions) and moves them into your Pictures folder.
-
-1. Write a cron script to weekly check for outdated packages in your system and prompts you to update them or updates them automatically.
-
-
+1. Buat skrip yang setiap menit memeriksa folder Downloads untuk berkas gambar (bisa cek [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) atau pakai regex ekstensi umum) dan memindahkannya ke folder Pictures.
+1. Tulis skrip cron mingguan yang memeriksa paket usang di sistem lalu meminta Anda memperbarui atau memperbaruinya otomatis.
 
 {% comment %}
 
