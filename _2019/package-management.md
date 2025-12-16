@@ -1,36 +1,25 @@
 ---
 layout: lecture
-title: "Package Management and Dependency Management"
+title: "Manajemen Paket dan Ketergantungan"
 presenter: Anish
 video:
   aspect: 56.25
   id: tgvt473T8xA
 ---
 
-Software usually builds on (a collection of) other software, which necessitates
-dependency management.
+Perangkat lunak biasanya dibangun di atas perangkat lunak lain, sehingga memerlukan manajemen ketergantungan.
 
-Package/dependency management programs are language-specific, but many share
-common ideas.
+Program manajemen paket/ketergantungan bersifat spesifik bahasa, tetapi banyak berbagi konsep umum.
 
-# Package repositories
+# Repositori paket
 
-Packages are hosted in _package repositories_. There are different repositories
-for different languages (and sometimes multiple for a particular language),
-such as [PyPI](https://pypi.org/) for Python, [RubyGems](https://rubygems.org/)
-for Ruby, and [crates.io](https://crates.io/) for Rust. They generally store
-software (source code and sometimes pre-compiled binaries for specific
-platforms) for all versions of a package.
+Paket di-host di _repositori paket_. Ada repositori berbeda untuk berbagai bahasa (kadang lebih dari satu per bahasa), seperti [PyPI](https://pypi.org/) untuk Python, [RubyGems](https://rubygems.org/) untuk Ruby, dan [crates.io](https://crates.io/) untuk Rust. Repositori ini menyimpan perangkat lunak (kode sumber dan kadang biner pra-kompilasi untuk platform tertentu) untuk semua versi paket.
 
-# Semantic versioning
+# Penomoran versi semantik
 
-Software evolves over time, and we need a way to refer to software versions.
-Some simple ways could be to refer to software by a sequence number or a commit
-hash, but we can do better in terms of communicating more information: using
-version numbers.
+Perangkat lunak berkembang dari waktu ke waktu, dan kita perlu cara merujuk versinya. Cara sederhana adalah memakai nomor urut atau hash commit, tetapi kita bisa berkomunikasi lebih banyak informasi dengan nomor versi.
 
-There are many approaches; one popular one is [Semantic
-Versioning](https://semver.org/):
+Ada banyak pendekatan; salah satu yang populer adalah [Semantic Versioning](https://semver.org/):
 
 ```
 x.y.z
@@ -40,69 +29,38 @@ x.y.z
 +----- major
 ```
 
-Increment **major** version when you make incompatible API changes.
+Naikkan versi **major** saat Anda membuat perubahan API yang tidak kompatibel.
 
-Increment **minor** version when you add functionality in a backward-compatible manner.
+Naikkan versi **minor** saat Anda menambah fungsionalitas dengan tetap kompatibel mundur.
 
-Increment **patch** when you make backward-compatible bug fixes.
+Naikkan versi **patch** saat memperbaiki bug yang kompatibel mundur.
 
-For example, if you depend on a feature introduced in `v1.2.0` of some
-software, then you can install `v1.x.y` for any minor version `x >= 2` and any
-patch version `y`. You need to install major version `1` (because `2` can
-introduce backward-incompatible changes), and you need to install a minor
-version `>= 2` (because you depend on a feature introduced in that minor
-version). You can use any newer minor version or patch version because
-they should not introduce any backward-incompatible changes.
+Contoh, jika Anda bergantung pada fitur yang diperkenalkan di `v1.2.0`, Anda bisa memasang `v1.x.y` untuk minor `x >= 2` dan patch `y` berapa pun. Anda perlu memasang major versi `1` (karena `2` bisa membawa perubahan tidak kompatibel), dan perlu minor `>= 2` (karena Anda bergantung pada fitur yang diperkenalkan di minor tersebut). Anda bisa memakai minor atau patch yang lebih baru karena seharusnya tidak memperkenalkan perubahan tak kompatibel.
 
-# Lock files
+# Lock file
 
-In addition to specifying versions, it can be nice to enforce that the
-_contents_ of the dependency have not changed to prevent tampering. Some tools
-use _lock files_ to specify cryptographic hashes of dependencies (along with
-versions) that are checked on package install.
+Selain menentukan versi, bagus juga menegakkan agar _isi_ ketergantungan tidak berubah untuk mencegah gangguan. Beberapa alat menggunakan _lock file_ yang berisi hash kriptografis (bersama versi) yang dicek saat pemasangan paket.
 
-# Specifying versions
+# Menentukan versi
 
-Tools often let you specify versions in multiple ways, such as:
+Alat sering mengizinkan penentuan versi dengan beberapa cara, seperti:
 
-- exact version, e.g. `2.3.12`
-- minimum major version, e.g. `>= 2`
-- specific major version and minimum patch version, e.g. `>= 2.3, <3.0`
+- versi tepat, mis. `2.3.12`
+- minimum major, mis. `>= 2`
+- major tertentu dan minimum patch, mis. `>= 2.3, <3.0`
 
-Specifying an exact version can be advantageous to avoid different behaviors
-based on installed dependencies (this shouldn't happen if all dependencies
-faithfully follow semver, but sometimes people make mistakes). Specifying a
-minimum requirement has the advantage of allowing bug fixes to be installed
-(e.g. patch upgrades).
+Menentukan versi tepat berguna untuk menghindari perilaku berbeda berdasarkan dependensi terpasang (seharusnya tidak terjadi jika semua mematuhi semver, tapi manusia bisa salah). Menentukan batas minimum memberi keuntungan perbaikan bug tetap bisa dipasang (mis. upgrade patch).
 
-# Dependency resolution
+# Resolusi dependensi
 
-Package managers use various dependency resolution algorithms to satisfy
-dependency requirements. This often gets challenging with complex dependencies
-(e.g. a package can be indirectly depended on by multiple top-level
-dependencies, and different versions could be required). Different package
-managers have different levels of sophistication in their dependency
-resolution, but it's something to be aware of: you may need to understand this
-if you are debugging dependencies.
+Manajer paket memakai berbagai algoritma resolusi untuk memenuhi kebutuhan dependensi. Ini sering menantang ketika ketergantungan kompleks (mis. sebuah paket bisa dibutuhkan secara tidak langsung oleh banyak dependensi tingkat atas dengan versi berbeda). Setiap manajer paket memiliki kecanggihan berbeda dalam resolusi dependensi; Anda mungkin perlu memahaminya saat men-debug ketergantungan.
 
-# Virtual environments
+# Lingkungan virtual
 
-If you're developing multiple software projects, they may depend on different
-versions of a particular piece of software. Sometimes, your build tool will
-handle this naturally (e.g. by building a static binary).
+Jika mengembangkan banyak proyek perangkat lunak, mungkin masing-masing bergantung pada versi berbeda dari komponen tertentu. Terkadang alat build Anda menangani ini secara alami (mis. dengan membangun biner statis).
 
-For other build tools and programming languages, one approach is handling this
-with virtual environments (e.g. with the
-[virtualenv](https://docs.python-guide.org/dev/virtualenvs/) tool for Python).
-Instead of installing dependencies system-wide, you can install dependencies
-per-project in a virtual environment, and _activate_ the virtual environment
-that you want to use when you're working on a specific project.
+Untuk alat build atau bahasa lain, salah satu pendekatan adalah memakai lingkungan virtual (mis. [virtualenv](https://docs.python-guide.org/dev/virtualenvs/) untuk Python). Alih-alih memasang dependensi secara sistem-wide, Anda memasang per proyek di lingkungan virtual, lalu _mengaktifkan_ lingkungan yang ingin dipakai saat bekerja pada proyek tertentu.
 
 # Vendoring
 
-Another very different approach to dependency management is _vendoring_.
-Instead of using a dependency manager or build tool to fetch software, you copy
-the entire source code for a dependency into your software's repository. This
-has the advantage that you're always building against the same version of the
-dependency and you don't need to rely on a package repository, but it is more
-effort to upgrade dependencies.
+Pendekatan lain dalam manajemen ketergantungan adalah _vendoring_. Alih-alih memakai manajer paket atau alat build untuk mengambil perangkat lunak, Anda menyalin seluruh kode sumber dependensi ke repositori perangkat lunak Anda. Keuntungannya: Anda selalu membangun terhadap versi dependensi yang sama dan tidak perlu mengandalkan repositori paket, tetapi butuh lebih banyak usaha untuk memutakhirkan dependensi.
