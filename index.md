@@ -5,76 +5,56 @@ subtitle: IAP 2026
 nositetitle: true
 ---
 
-Classes teach you all about advanced topics within CS, from operating systems
-to machine learning, but there's one critical subject that's rarely covered,
-and is instead left to students to figure out on their own: proficiency with
-their tools. We'll teach you how to master the command-line, use a powerful
-text editor, use fancy features of version control systems, and much more!
+Kelas-kelas mengajarkan berbagai topik lanjutan dalam ilmu komputer, mulai dari sistem operasi hingga pembelajaran mesin, tetapi ada satu topik penting yang jarang dibahas dan justru dibiarkan untuk dipelajari sendiri: kemahiran menggunakan alat. Kami akan mengajarkan cara menguasai command-line, menggunakan editor teks yang kuat, memanfaatkan fitur-fitur canggih dari sistem kontrol versi, dan banyak lagi.
 
-Students spend hundreds of hours using these tools over the course of their
-education (and thousands over their career), so it makes sense to make the
-experience as fluid and frictionless as possible. Mastering these tools not
-only enables you to spend less time on figuring out how to bend your tools to
-your will, but it also lets you solve problems that would previously seem
-impossibly complex.
+Mahasiswa menghabiskan ratusan jam menggunakan alat-alat ini selama masa pendidikan mereka (dan ribuan jam sepanjang karier), jadi masuk akal jika pengalaman tersebut dibuat senyaman dan seefisien mungkin. Menguasai alat-alat ini bukan hanya mengurangi waktu untuk mencari cara menyesuaikan alat, tetapi juga memungkinkan Anda memecahkan masalah yang sebelumnya tampak mustahil.
 
-These days, many aspects of software engineering are also in flux
-through the introduction of AI-enabled and AI-enhanced tools and
-workflows. When used appropriately and with awareness of their
-shortcomings, these can often provide significant benefits to
-CS practitioners and are thus worth developing working knowledge of.
-Since AI is a cross-functional enabling technology, there is not a
-standalone AI lecture; we've instead folded the use of the latest
-applicable AI tools and techniques into each lecture directly.
+Saat ini banyak aspek rekayasa perangkat lunak berubah karena hadirnya alat dan alur kerja yang didukung AI. Jika digunakan dengan tepat dan dengan kesadaran akan kekurangannya, alat-alat ini dapat memberikan manfaat besar bagi praktisi CS dan layak untuk dikuasai. Karena AI adalah teknologi lintas fungsi, tidak ada kuliah khusus AI; kami justru menyisipkan penggunaan alat dan teknik AI terbaru yang relevan di tiap kuliah.
 
-Read about the [motivation behind this class](/about/).
+Baca [alasan di balik kelas ini](/about/).
 
-# Registration
+# Pendaftaran
 
-Sign up for the IAP 2026 class by filling out this [registration form](https://forms.gle/j2wMzi7qeiZmzEWy9).
+Daftarkan diri untuk kelas IAP 2026 dengan mengisi [formulir pendaftaran](https://forms.gle/j2wMzi7qeiZmzEWy9).
 
-# Schedule
+# Jadwal
 
-**Lecture**: [35-225](https://whereis.mit.edu/?go=35), 1:30--2:30pm (_exception_: 3--4pm on Friday 1/16)<br>
-**Discussion**: [OSSU Discord](https://ossu.dev/#community), in `#missing-semester`
+**Kuliah**: [35-225](https://whereis.mit.edu/?go=35), 1:30--2:30pm (_pengecualian_: 3--4pm pada Jumat 1/16)<br>
+**Diskusi**: [OSSU Discord](https://ossu.dev/#community), di `#missing-semester`
 
 <ul>
 {% assign lectures = site['2026'] | sort: 'date' %}
 {% for lecture in lectures %}
     {% if lecture.phony != true %}
         <li>
-        <strong>{{ lecture.date | date: '%-m/%d/%y' }}</strong>:
+        <strong>{{ lecture.date | date: '%-d/%-m/%y' }}</strong>:
         {% if lecture.ready %}
             <a href="{{ lecture.url }}">{{ lecture.title }}</a>
         {% else %}
-            {{ lecture.title }} {% if lecture.noclass %}[no class]{% endif %}
+            {{ lecture.title }} {% if lecture.noclass %}[tidak ada kelas]{% endif %}
         {% endif %}
         </li>
     {% endif %}
 {% endfor %}
 </ul>
 
-We are still finalizing the syllabus for the IAP 2026 offering, so the topics
-we cover may change slightly.
+Kami masih memfinalisasi silabus untuk perkuliahan IAP 2026, sehingga topik yang kami bahas mungkin sedikit berubah.
 
-If you can't wait until January 2026, you can also take a look at the lectures
-from the [previous offering of the course](/2020/), which covers many of the
-same topics.
+Jika Anda tidak sabar menunggu hingga Januari 2026, Anda dapat melihat kuliah dari [penyelenggaraan kursus sebelumnya](/2020/), yang membahas banyak topik serupa.
 
 {% comment %}
 Video recordings of the lectures are available [on
 YouTube](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J).
 {% endcomment %}
 
-# About the class
+# Informasi Kelas
 
-**Staff**: This class is co-taught by [Anish](https://anish.io/), [Jon](https://thesquareplanet.com/), and [Jose](http://josejg.com/).<br>
-**Questions**: Email us at [missing-semester@mit.edu](mailto:missing-semester@mit.edu).
+**Staff**: Kelas ini diajarkan bersama oleh [Anish](https://anish.io/), [Jon](https://thesquareplanet.com/), dan [Jose](http://josejg.com/).<br>
+**Pertanyaan**: Kirim email ke [missing-semester@mit.edu](mailto:missing-semester@mit.edu).
 
-# Beyond MIT
+# Di Luar MIT
 
-We've also shared this class beyond MIT in the hopes that others may
-benefit from these resources. You can find posts and discussion on
+Kami juga telah membagikan kelas ini di luar MIT dengan harapan orang lain dapat memperoleh manfaat dari sumber daya ini. Anda dapat menemukan postingan dan diskusi di
 
  - [Hacker News](https://news.ycombinator.com/item?id=22226380)
  - [Lobsters](https://lobste.rs/s/ti1k98/missing_semester_your_cs_education_mit)
@@ -96,7 +76,7 @@ Some more URLs:
 - https://twitter.com/MIT_CSAIL/status/1581313961093484545
 {% endcomment %}
 
-# Translations
+# Terjemahan Lain
 
 - [Chinese (Simplified)](https://missing-semester-cn.github.io/)
 - [Japanese](https://missing-semester-jp.github.io/)
@@ -113,25 +93,22 @@ Some more URLs:
 - [German](https://missing-semester-de.github.io/)
 - [Bengali](https://missing-semester-bn.github.io/)
 
-Note: these are external links to community translations. We have not vetted
-them.
+Catatan: ini adalah tautan eksternal ke terjemahan komunitas. Kami belum memverifikasi terjemahan tersebut.
 
-Have you created a translation of the course notes from this class? Submit a
-[pull request](https://github.com/missing-semester/missing-semester/pulls) so
-we can add it to the list!
+Apakah Anda telah membuat terjemahan catatan kuliah dari kelas ini? Kirimkan [pull request](https://github.com/missing-semester/missing-semester/pulls) agar kami dapat menambahkannya ke daftar!
 
-## Acknowledgments
+## Ucapan Terima Kasih
 
 {% comment %}
 2026 acks; previous years' acks are on their respective pages
 {% endcomment %}
 
-We thank Luis Turino / [SIPB](https://sipb.mit.edu/) for supporting this class as part of [SIPB IAP 2026](https://sipb.mit.edu/iap/).
+Kami berterima kasih kepada Luis Turino / [SIPB](https://sipb.mit.edu/) atas dukungan mereka pada kelas ini sebagai bagian dari [SIPB IAP 2026](https://sipb.mit.edu/iap/).
 
 ---
 
 <div class="small center">
-<p><a href="https://github.com/missing-semester/missing-semester">Source code</a>.</p>
-<p>Licensed under CC BY-NC-SA.</p>
-<p>See <a href="/license/">here</a> for contribution &amp; translation guidelines.</p>
+<p><a href="https://github.com/missing-semester/missing-semester">Kode sumber</a>.</p>
+<p>Dilisensikan di bawah CC BY-NC-SA.</p>
+<p>Lihat <a href="/license/">di sini</a> untuk panduan kontribusi dan terjemahan.</p>
 </div>
