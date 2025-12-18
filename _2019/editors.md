@@ -1,290 +1,295 @@
 ---
 layout: lecture
-title: "Editors"
+title: "Editor"
 presenter: Anish
 video:
   aspect: 62.5
   id: 1vLcusYSrI4
 ---
 
-# Importance of Editors
+# Pentingnya Editor
 
-As programmers, we spend most of our time editing plain-text files. It's worth
-investing time learning an editor that fits your needs.
+Sebagai pemrogram, kita menghabiskan sebagian besar waktu dengan mengedit file
+teks biasa. Pantas untuk meluangkan waktu mempelajari editor yang sesuai dengan
+kebutuhanmu.
 
-How do you learn a new editor? You force yourself to use that editor for a
-while, even if it temporarily hampers your productivity. It'll pay off soon
-enough (two weeks is enough to learn the basics).
+Bagaimana belajar editor baru? Paksa dirimu memakai editor itu selama beberapa
+waktu, meski sementara menurunkan produktivitasmu. Itu akan segera terbayar
+(dua minggu cukup untuk mempelajari dasar-dasarnya).
 
-We are going to teach you Vim, but we encourage you to experiment with other
-editors. It's a very personal choice, and people have [strong
-opinions](https://en.wikipedia.org/wiki/Editor_war).
+Kami akan mengajarkan Vim, tetapi kami mendorongmu untuk bereksperimen dengan
+editor lain. Ini pilihan yang sangat personal, dan orang-orang memiliki
+[pendapat kuat](https://en.wikipedia.org/wiki/Editor_war).
 
-We can't teach you how to use a powerful editor in 50 minutes, so we're going
-to focus on teaching you the basics, showing you some of the more advanced
-functionality, and giving you the resources to master the tool. We'll teach you
-lessons in the context of Vim, but most ideas will translate to any other
-powerful editor you use (and if they don't, then you probably shouldn't use
-that editor!).
+Kami tak bisa mengajarkan penggunaan editor kuat dalam 50 menit, jadi kami
+fokus pada dasar-dasarnya, menampilkan beberapa fungsi lanjut, dan memberi
+referensi untuk menguasainya. Kami mengajar dengan konteks Vim, namun banyak
+gagasannya berlaku untuk editor kuat lain (jika tidak, mungkin editor itu
+takterlalu layak digunakan!).
 
 ![Editor Learning Curves](/2019/files/editor-learning-curves.jpg)
 
 <!-- source: https://blogs.msdn.microsoft.com/steverowe/2004/11/17/code-editor-learning-curves/ -->
 
-The editor learning curves graph is a myth. Learning the basics of a powerful
-editor is quite easy (even though it might take years to master).
+Grafik kurva belajar editor adalah mitos. Mempelajari dasar editor yang kuat
+sangat mudah (meski butuh bertahun-tahun untuk benar-benar menguasainya).
 
-Which editors are popular today? See this [Stack Overflow
-survey](https://insights.stackoverflow.com/survey/2018/#development-environments-and-tools)
-(there may be some bias because Stack Overflow users may not be representative
-of programmers as a whole).
+Editor mana yang populer hari ini? Lihat [survei Stack
+Overflow](https://insights.stackoverflow.com/survey/2018/#development-environments-and-tools)
+(mungkin ada bias karena pengguna Stack Overflow belum tentu mewakili seluruh
+komunitas pemrogram).
 
-## Command-line Editors
+## Editor Baris Perintah
 
-Even if you eventually settle on using a GUI editor, it's worth learning a
-command-line editor for easily editing files on remote machines.
+Meski pada akhirnya kamu memakai editor GUI, mempelajari editor baris perintah
+berguna untuk mengedit file di mesin remote dengan mudah.
 
 # Nano
 
-Nano is a simple command-line editor.
+Nano adalah editor baris perintah yang sederhana.
 
-- Move with arrow keys
-- All other shortcuts (save, exit) shown at the bottom
+- Bergerak dengan tombol panah
+- Pintasan lain (simpan, keluar) terlihat di bagian bawah
 
 # Vim
 
-Vi/Vim is a powerful text editor. It's a command-line program that's usually
-installed everywhere, which makes it convenient for editing files on a remote
-machine.
+Vi/Vim adalah editor teks yang kuat. Ia adalah program baris perintah yang
+umumnya terinstal di mana-mana, sehingga praktis untuk mengedit file di mesin
+remote.
 
-Vim also has graphical versions, such as GVim and
-[MacVim](https://macvim-dev.github.io/macvim/). These provide additional
-features such as 24-bit color, menus, and popups.
+Vim juga memiliki versi grafis seperti GVim dan
+[MacVim](https://macvim-dev.github.io/macvim/). Versi ini menyediakan fitur
+tambahan seperti warna 24-bit, menu, dan popup.
 
-## Philosophy of Vim
+## Filosofi Vim
 
-- When programming, you spend most of your time reading/editing, not writing
-    - Vim is a **modal** editor: different modes for inserting text vs manipulating text
-- Vim is programmable (with Vimscript and also other languages like Python)
-- Vim's interface itself is like a programming language
-    - Keystrokes (with mnemonic names) are commands
-    - Commands are composable
-- Don't use the mouse: too slow
-- Editor should work at the speed you think
+- Saat pemrograman, kamu lebih banyak membaca/mengedit daripada menulis
+    - Vim adalah editor **modal**: mode berbeda untuk menyisipkan teks dan
+    memanipulasi teks
+- Vim dapat diprogram (dengan Vimscript dan bahasa lain seperti Python)
+- Antarmuka Vim sendiri seperti bahasa pemrograman
+    - Tombol (dengan nama mnemonik) adalah perintah
+    - Perintah bersifat komposabel
+- Jangan pakai mouse: terlalu lambat
+- Editor sebaiknya bekerja secepat kamu berpikir
 
-## Introductory Vim
+## Pengantar Vim
 
-### Modes
+### Mode
 
-Vim shows the current mode in the bottom left.
+Vim menampilkan mode saat ini di kiri bawah.
 
-- Normal mode: for moving around a file and making edits
-    - Spend most of your time here
-- Insert mode: for inserting text
-- Visual (visual, line, or block) mode: for selecting blocks of text
+- Normal mode: untuk bergerak di file dan membuat edit
+    - Habiskan sebagian besar waktumu di sini
+- Insert mode: untuk menyisipkan teks
+- Visual (visual, baris, atau blok) mode: untuk memilih blok teks
 
-You change modes by pressing `<ESC>` to switch from any mode back to normal
-mode. From normal mode, enter insert mode with `i`, visual mode with `v`,
-visual line mode with `V`, and visual block mode with `<C-v>`.
+Kamu berpindah mode dengan menekan `<ESC>` untuk kembali ke normal mode. Dari
+normal mode, masuk insert mode dengan `i`, visual mode dengan `v`, visual line
+mode dengan `V`, dan visual block mode dengan `<C-v>`.
 
-You use the `<ESC>` key a lot when using Vim: consider remapping Caps Lock to
-Escape.
+Kamu sering memakai tombol `<ESC>` saat menggunakan Vim: pertimbangkan
+memetakan ulang Caps Lock menjadi Escape.
 
-### Basics
+### Dasar
 
-Vim ex commands are issued through `:{command}` in normal mode.
+Perintah Vim ex dijalankan melalui `:{command}` di normal mode.
 
-- `:q` quit (close window)
-- `:w` save
-- `:wq` save and quit
-- `:e {name of file}` open file for editing
-- `:ls` show open buffers
-- `:help {topic}` open help
-    - `:help :w` opens help for the `:w` ex command
-    - `:help w` opens help for the `w` movement
+- `:q` keluar (tutup jendela)
+- `:w` simpan
+- `:wq` simpan dan keluar
+- `:e {nama file}` buka file untuk diedit
+- `:ls` tampilkan buffer yang terbuka
+- `:help {topik}` buka bantuan
+    - `:help :w` membuka bantuan untuk perintah ex `:w`
+    - `:help w` membuka bantuan untuk gerakan `w`
 
-### Movement
+### Gerakan
 
-Vim is all about efficient movement. Navigate the file in Normal mode.
+Vim berfokus pada pergerakan yang efisien. Navigasi file di Normal mode.
 
-- Disable arrow keys to avoid bad habits
+- Nonaktifkan tombol panah untuk menghindari kebiasaan buruk
 ```vim
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 ```
-- Basic movement: `hjkl` (left, down, up, right)
-- Words: `w` (next word), `b` (beginning of word), `e` (end of word)
-- Lines: `0` (beginning of line), `^` (first non-blank character), `$` (end of line)
-- Screen: `H` (top of screen), `M` (middle of screen), `L` (bottom of screen)
-- File: `gg` (beginning of file), `G` (end of file)
-- Line numbers: `:{number}<CR>` or `{number}G` (line {number})
-- Misc: `%` (corresponding item)
-- Find: `f{character}`, `t{character}`, `F{character}`, `T{character}`
-    - find/to forward/backward {character} on the current line
-- Repeating N times: `{number}{movement}`, e.g. `10j` moves down 10 lines
-- Search: `/{regex}`, `n` / `N` for navigating matches
+- Gerakan dasar: `hjkl` (kiri, bawah, atas, kanan)
+- Kata: `w` (kata berikutnya), `b` (awal kata), `e` (akhir kata)
+- Baris: `0` (awal baris), `^` (karakter non-kosong pertama), `$` (akhir baris)
+- Layar: `H` (atas layar), `M` (tengah layar), `L` (bawah layar)
+- File: `gg` (awal file), `G` (akhir file)
+- Nomor baris: `:{angka}<CR>` atau `{angka}G` (baris {angka})
+- Lain-lain: `%` (pasangan yang berkorespondensi)
+- Temukan: `f{karakter}`, `t{karakter}`, `F{karakter}`, `T{karakter}`
+    - temukan/menuju {karakter} ke depan/belakang pada baris saat ini
+- Mengulang N kali: `{angka}{gerakan}`, mis. `10j` turun 10 baris
+- Pencarian: `/{regex}`, `n` / `N` untuk menavigasi hasil
 
-### Selection
+### Seleksi
 
-Visual modes:
+Mode visual:
 
 - Visual
 - Visual Line
 - Visual Block
 
-Can use movement keys to make selection.
+Bisa menggunakan tombol gerak untuk membuat seleksi.
 
-### Manipulating text
+### Memanipulasi teks
 
-Everything that you used to do with the mouse, you now do with keyboards (and
-powerful, composable commands).
+Hal-hal yang dulu kamu lakukan dengan mouse, sekarang dilakukan dengan
+keyboard (dan perintah yang kuat serta komposabel).
 
-- `i` enter insert mode
-    - but for manipulating/deleting text, want to use something more than
+- `i` masuk insert mode
+    - tetapi untuk memanipulasi/menghapus teks, gunakan lebih dari sekadar
     backspace
-- `o` / `O` insert line below / above
-- `d{motion}` delete {motion}
-    - e.g. `dw` is delete word, `d$` is delete to end of line, `d0` is delete
-    to beginning of line
-- `c{motion}` change {motion}
-    - e.g. `cw` is change word
-    - like `d{motion}` followed by `i`
-- `x` delete character (equal do `dl`)
-- `s` substitute character (equal to `xi`)
-- visual mode + manipulation
-    - select text, `d` to delete it or `c` to change it
-- `u` to undo, `<C-r>` to redo
-- Lots more to learn: e.g. `~` flips the case of a character
+- `o` / `O` sisipkan baris di bawah / di atas
+- `d{gerakan}` hapus {gerakan}
+    - mis. `dw` menghapus kata, `d$` menghapus hingga akhir baris, `d0`
+    menghapus hingga awal baris
+- `c{gerakan}` ubah {gerakan}
+    - mis. `cw` mengubah kata
+    - seperti `d{gerakan}` diikuti `i`
+- `x` hapus karakter (sama dengan `dl`)
+- `s` ganti karakter (sama dengan `xi`)
+- mode visual + manipulasi
+    - pilih teks, `d` untuk menghapusnya atau `c` untuk mengubahnya
+- `u` untuk undo, `<C-r>` untuk redo
+- Masih banyak hal untuk dipelajari: mis. `~` membalik huruf besar/kecil sebuah karakter
 
-### Resources
+### Sumber
 
-- `vimtutor` command-line program to teach you vim
-- [Vim Adventures](https://vim-adventures.com/) game to learn Vim
+- Program baris perintah `vimtutor` untuk mengajarkan Vim
+- Gim [Vim Adventures](https://vim-adventures.com/) untuk belajar Vim
 
-## Customizing Vim
+## Menyesuaikan Vim
 
-Vim is customized through a plain-text configuration file in `~/.vimrc`
-(containing Vimscript commands). There are probably lots of basic settings that
-you want to turn on.
+Vim disesuaikan melalui file konfigurasi teks biasa `~/.vimrc` (berisi perintah
+Vimscript). Kemungkinan ada banyak pengaturan dasar yang ingin kamu aktifkan.
 
-Look at people's dotfiles on GitHub for inspiration, but try not to
-copy-and-paste people's full configuration. Read it, understand it, and take
-what you need.
+Lihat dotfiles orang lain di GitHub untuk inspirasi, tetapi cobalah untuk tidak
+menyalin penuh konfigurasi orang lain. Baca, pahami, dan ambil yang kamu
+butuhkan.
 
-Some customizations to consider:
+Beberapa penyesuaian yang patut dipertimbangkan:
 
-- Syntax highlighting: `syntax on`
-- Color schemes
-- Line numbers: `set nu` / `set rnu`
-- Backspacing through everything: `set backspace=indent,eol,start`
+- Penyorotan sintaks: `syntax on`
+- Skema warna
+- Nomor baris: `set nu` / `set rnu`
+- Backspace untuk segala sesuatu: `set backspace=indent,eol,start`
 
-## Advanced Vim
+## Vim Lanjutan
 
-Here are a few examples to show you the power of the editor. We can't teach you
-all of these kinds of things, but you'll learn them as you go. A good
-heuristic: whenever you're using your editor and you think "there must be a
-better way of doing this", there probably is: look it up online.
+Berikut beberapa contoh untuk menunjukkan kekuatan editor ini. Kami tidak bisa
+mengajarkan semua hal seperti ini, tetapi kamu akan mempelajarinya seiring
+waktu. Heuristik yang baik: kapan pun kamu memakai editor dan berpikir "pasti
+ada cara yang lebih baik", biasanya memang ada: cari saja secara daring.
 
-### Search and replace
+### Cari dan ganti
 
-`:s` (substitute) command ([documentation](http://vim.wikia.com/wiki/Search_and_replace)).
+Perintah `:s` (substitute)
+([dokumentasi](http://vim.wikia.com/wiki/Search_and_replace)).
 
 - `%s/foo/bar/g`
-    - replace foo with bar globally in file
+    - ganti foo dengan bar secara global di file
 - `%s/\[.*\](\(.*\))/\1/g`
-    - replace named Markdown links with plain URLs
+    - ganti tautan Markdown bernama dengan URL polos
 
-### Multiple windows
+### Banyak jendela
 
-- `sp` / `vsp` to split windows
-- Can have multiple views of the same buffer.
+- `sp` / `vsp` untuk membagi jendela
+- Bisa memiliki banyak tampilan untuk buffer yang sama.
 
-### Mouse support
+### Dukungan mouse
 
 - `set mouse+=a`
-    - can click, scroll select
+    - bisa klik, gulir, dan memilih
 
-### Macros
+### Makro
 
-- `q{character}` to start recording a macro in register `{character}`
-- `q` to stop recording
-- `@{character}` replays the macro
-- Macro execution stops on error
-- `{number}@{character}` executes a macro {number} times
-- Macros can be recursive
-    - first clear the macro with `q{character}q`
-    - record the macro, with `@{character}` to invoke the macro recursively
-    (will be a no-op until recording is complete)
-- Example: convert xml to json ([file](/2019/files/example-data.xml))
-    - Array of objects with keys "name" / "email"
-    - Use a Python program?
-    - Use sed / regexes
+- `q{karakter}` untuk mulai merekam makro di register `{karakter}`
+- `q` untuk menghentikan rekaman
+- `@{karakter}` memutar ulang makro
+- Eksekusi makro berhenti saat ada error
+- `{angka}@{karakter}` menjalankan makro {angka} kali
+- Makro bisa rekursif
+    - pertama bersihkan makro dengan `q{karakter}q`
+    - rekam makro, dengan `@{karakter}` untuk memanggil makro secara rekursif
+    (tidak akan melakukan apa-apa sampai rekaman selesai)
+- Contoh: ubah xml ke json ([file](/2019/files/example-data.xml))
+    - Larik objek dengan kunci "name" / "email"
+    - Pakai program Python?
+    - Pakai sed / regex
         - `g/people/d`
         - `%s/<person>/{/g`
         - `%s/<name>\(.*\)<\/name>/"name": "\1",/g`
         - ...
-    - Vim commands / macros
-        - `Gdd`, `ggdd` delete first and last lines
-        - Macro to format a single element (register `e`)
-            - Go to line with `<name>`
+    - Perintah / makro Vim
+        - `Gdd`, `ggdd` menghapus baris pertama dan terakhir
+        - Makro untuk memformat satu elemen (register `e`)
+            - Pergi ke baris dengan `<name>`
             - `qe^r"f>s": "<ESC>f<C"<ESC>q`
-        - Macro to format a person
-            - Go to line with `<person>`
+        - Makro untuk memformat satu person
+            - Pergi ke baris dengan `<person>`
             - `qpS{<ESC>j@eA,<ESC>j@ejS},<ESC>q`
-        - Macro to format a person and go to the next person
-            - Go to line with `<person>`
+        - Makro untuk memformat satu person dan lanjut ke person berikutnya
+            - Pergi ke baris dengan `<person>`
             - `qq@pjq`
-        - Execute macro until end of file
+        - Eksekusi makro hingga akhir file
             - `999@q`
-        - Manually remove last `,` and add `[` and `]` delimiters
+        - Hapus `,` terakhir secara manual dan tambahkan pembatas `[` dan `]`
 
-## Extending Vim
+## Memperluas Vim
 
-There are tons of plugins for extending vim.
+Ada banyak plugin untuk memperluas vim.
 
-First, get set up with a plugin manager like
+Pertama, pasang pengelola plugin seperti
 [vim-plug](https://github.com/junegunn/vim-plug),
-[Vundle](https://github.com/VundleVim/Vundle.vim), or
+[Vundle](https://github.com/VundleVim/Vundle.vim), atau
 [pathogen.vim](https://github.com/tpope/vim-pathogen).
 
-Some plugins to consider:
+Beberapa plugin yang patut dipertimbangkan:
 
-- [ctrlp.vim](https://github.com/kien/ctrlp.vim): fuzzy file finder
-- [vim-fugitive](https://github.com/tpope/vim-fugitive): git integration
-- [vim-surround](https://github.com/tpope/vim-surround): manipulating "surroundings"
-- [gundo.vim](https://github.com/sjl/gundo.vim): navigate undo tree
-- [nerdtree](https://github.com/scrooloose/nerdtree): file explorer
-- [syntastic](https://github.com/vim-syntastic/syntastic): syntax checking
-- [vim-easymotion](https://github.com/easymotion/vim-easymotion): magic motions
-- [vim-over](https://github.com/osyo-manga/vim-over): substitute preview
+- [ctrlp.vim](https://github.com/kien/ctrlp.vim): pencari file fuzzy
+- [vim-fugitive](https://github.com/tpope/vim-fugitive): integrasi git
+- [vim-surround](https://github.com/tpope/vim-surround): memanipulasi "surroundings"
+- [gundo.vim](https://github.com/sjl/gundo.vim): menavigasi pohon undo
+- [nerdtree](https://github.com/scrooloose/nerdtree): penjelajah file
+- [syntastic](https://github.com/vim-syntastic/syntastic): pemeriksaan sintaks
+- [vim-easymotion](https://github.com/easymotion/vim-easymotion): motion ajaib
+- [vim-over](https://github.com/osyo-manga/vim-over): pratinjau substitusi
 
-Lists of plugins:
+Daftar plugin:
 
 - [Vim Awesome](https://vimawesome.com/)
 
-## Vim-mode in Other Programs
+## Mode Vim di Program Lain
 
-For many popular editors (e.g. vim and emacs), many other tools support editor
-emulation.
+Untuk banyak editor populer (mis. vim dan emacs), banyak alat lain mendukung
+emulasi editor tersebut.
 
 - Shell
     - bash: `set -o vi`
     - zsh: `bindkey -v`
-    - `export EDITOR=vim` (environment variable used by programs like `git`)
+    - `export EDITOR=vim` (variabel lingkungan yang digunakan program seperti `git`)
 - `~/.inputrc`
     - `set editing-mode vi`
 
-There are even vim keybinding extensions for web [browsers](http://vim.wikia.com/wiki/Vim_key_bindings_for_web_browsers), some popular ones are [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en) for Google Chrome and [Tridactyl](https://github.com/tridactyl/tridactyl) for Firefox.
+Bahkan ada ekstensi keybinding vim untuk [peramban web](http://vim.wikia.com/wiki/Vim_key_bindings_for_web_browsers),
+beberapa yang populer adalah [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en)
+untuk Google Chrome dan [Tridactyl](https://github.com/tridactyl/tridactyl)
+untuk Firefox.
 
 
-## Resources
+## Sumber
 
 - [Vim Tips Wiki](http://vim.wikia.com/wiki/Vim_Tips_Wiki)
-- [Vim Advent Calendar](https://vimways.org/2018/): various Vim tips
-- [Neovim](https://neovim.io/) is a modern vim reimplementation with more active development.
-- [Vim Golf](http://www.vimgolf.com/): Various Vim challenges
+- [Vim Advent Calendar](https://vimways.org/2018/): berbagai tips Vim
+- [Neovim](https://neovim.io/) adalah reimplementasi vim modern dengan
+  pengembangan yang lebih aktif.
+- [Vim Golf](http://www.vimgolf.com/): Berbagai tantangan Vim
 
 {% comment %}
 # Resources
@@ -292,21 +297,22 @@ There are even vim keybinding extensions for web [browsers](http://vim.wikia.com
 TODO resources for other editors?
 {% endcomment %}
 
-# Exercises
+# Latihan
 
-1. Experiment with some editors. Try at least one command-line editor (e.g.
-   Vim) and at least one GUI editor (e.g. Atom). Learn through tutorials like
-   `vimtutor` (or the equivalents for other editors). To get a real feel for a
-   new editor, commit to using it exclusively for a couple days while going
-   about your work.
+1. Bereksperimenlah dengan beberapa editor. Coba setidaknya satu editor baris
+   perintah (mis. Vim) dan setidaknya satu editor GUI (mis. Atom). Belajar
+   melalui tutorial seperti `vimtutor` (atau padanan untuk editor lain). Untuk
+   benar-benar merasakan editor baru, komit menggunakan editor itu secara
+   eksklusif selama beberapa hari sambil bekerja.
 
-1. Customize your editor. Look through tips and tricks online, and look through
-   other people's configurations (often, they are well-documented).
+1. Sesuaikan editor-mu. Lihat tips dan trik secara daring, dan lihat
+   konfigurasi orang lain (sering kali, dokumentasinya bagus).
 
-1. Experiment with plugins for your editor.
+1. Bereksperimenlah dengan plugin untuk editor-mu.
 
-1. Commit to using a powerful editor for at least a couple weeks: you should
-   start seeing the benefits by then. At some point, you should be able to get
-   your editor to work as fast as you think.
+1. Komit memakai editor yang kuat setidaknya selama beberapa minggu: kamu
+   seharusnya mulai merasakan manfaatnya. Pada titik tertentu, kamu seharusnya
+   bisa membuat editormu bekerja secepat kamu berpikir.
 
-1. Install a linter (e.g. pyflakes for python) link it to your editor and test it is working.
+1. Instal linter (mis. pyflakes untuk python), hubungkan ke editor, dan uji
+   apakah berfungsi.
