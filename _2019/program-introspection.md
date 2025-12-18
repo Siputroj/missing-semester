@@ -1,6 +1,6 @@
 ---
 layout: lecture
-title: "Program Introspection"
+title: "Introspeksi Program"
 presenter: Anish
 video:
   aspect: 62.5
@@ -9,75 +9,74 @@ video:
 
 # Debugging
 
-When printf-debugging isn't good enough: use a debugger.
+Saat debugging dengan printf tidak cukup: gunakan debugger.
 
-Debuggers let you interact with the execution of a program, letting you do
-things like:
+Debugger memungkinkanmu berinteraksi dengan eksekusi program, misalnya:
 
-- halt execution of the program when it reaches a certain line
-- single-step through the program
-- inspect values of variables
-- many more advanced features
+- menghentikan eksekusi program ketika mencapai baris tertentu
+- melangkah satu per satu melalui program
+- memeriksa nilai variabel
+- masih banyak fitur lanjut lainnya
 
 ## GDB/LLDB
 
-[GDB](https://www.gnu.org/software/gdb/) and [LLDB](https://lldb.llvm.org/).
-Supports many C-like languages.
+[GDB](https://www.gnu.org/software/gdb/) dan [LLDB](https://lldb.llvm.org/).
+Mendukung banyak bahasa mirip C.
 
-Let's look at [example.c](/2019/files/example.c). Compile with debug flags:
+Mari lihat [example.c](/2019/files/example.c). Kompilasi dengan flag debug:
 `gcc -g -o example example.c`.
 
-Open GDB:
+Buka GDB:
 
 `gdb example`
 
-Some commands:
+Beberapa perintah:
 
 - `run`
-- `b {name of function}` - set a breakpoint
-- `b {file}:{line}` - set a breakpoint
-- `c` - continue
-- `step` / `next` / `finish` - step in / step over / step out
-- `p {variable}` - print value of variable
-- `watch {expression}` - set a watchpoint that triggers when the value of the expression changes
-- `rwatch {expression}` - set a watchpoint that triggers when the value is read
+- `b {nama fungsi}` - pasang breakpoint
+- `b {file}:{baris}` - pasang breakpoint
+- `c` - lanjutkan
+- `step` / `next` / `finish` - masuk / lompat lewat / keluar
+- `p {variabel}` - cetak nilai variabel
+- `watch {ekspresi}` - pasang watchpoint yang terpicu ketika nilai ekspresi berubah
+- `rwatch {ekspresi}` - pasang watchpoint yang terpicu ketika nilai dibaca
 - `layout`
 
 ## PDB
 
-[PDB](https://docs.python.org/3/library/pdb.html) is the Python debugger.
+[PDB](https://docs.python.org/3/library/pdb.html) adalah debugger Python.
 
-Insert `import pdb; pdb.set_trace()` where you want to drop into PDB, basically
-a hybrid of a debugger (like GDB) and a Python shell.
+Sisipkan `import pdb; pdb.set_trace()` di tempat kamu ingin masuk ke PDB,
+pada dasarnya hibrida antara debugger (seperti GDB) dan shell Python.
 
-## Web browser Developer Tools
+## Developer Tools di peramban web
 
-Another example of a debugger, this time with a graphical interface.
+Contoh lain debugger, kali ini dengan antarmuka grafis.
 
 # strace
 
-Observe system calls a program makes: `strace {program}`.
+Amati system call yang dibuat program: `strace {program}`.
 
 # Profiling
 
-Types of profiling: CPU, memory, etc.
+Jenis profiling: CPU, memori, dll.
 
-Simplest profiler: `time`.
+Profiler paling sederhana: `time`.
 
 ## Go
 
-Run test code with CPU profiler: `go test -cpuprofile=cpu.out`
+Jalankan kode uji dengan CPU profiler: `go test -cpuprofile=cpu.out`
 
-Analyze profile: `go tool pprof -web cpu.out`
+Analisis profil: `go tool pprof -web cpu.out`
 
-Run test code with Memory profiler: `go test -memprofile=mem.out`
+Jalankan kode uji dengan Memory profiler: `go test -memprofile=mem.out`
 
-Analyze profile: `go tool pprof -web mem.out`
+Analisis profil: `go tool pprof -web mem.out`
 
 ## Perf
 
-Basic performance stats: `perf stat {command}`
+Statistik performa dasar: `perf stat {command}`
 
-Run a program with the profiler: `perf record {command}`
+Jalankan program dengan profiler: `perf record {command}`
 
-Analyze profile: `perf report`
+Analisis profil: `perf report`
