@@ -1,71 +1,101 @@
 ---
 layout: lecture
-title: "Web and Browsers"
+title: "Web dan Peramban"
 presenter: Jose
 video:
   aspect: 62.5
   id: XpZO3S8odec
 ---
 
-Apart from the terminal, the web browser is a tool you will find yourself spending significant amounts of time into. Thus it is worth learning how to use it efficiently and
+Selain terminal, peramban web adalah alat tempat kamu menghabiskan banyak waktu.
+Karenanya layak belajar cara memakainya dengan efisien.
 
-## Shortcuts
+## Pintasan
 
-Clicking around in your browser is often not the fastest option, getting familiar with common shortcuts can really pay off in the long run.
+Klik sana-sini di peramban sering bukan opsi tercepat; mengenal pintasan umum
+bisa sangat berguna dalam jangka panjang.
 
-- `Middle Button Click` in a link opens it in a new tab
-- `Ctrl+T` Opens a new tab
-- `Ctrl+Shift+T` Reopens a recently closed tab
-- `Ctrl+L` selects the contents of the search bar
-- `Ctrl+F` to search within a webpage. If you do this often, you may benefit from an extension that supports regular expressions in searches.
-
-
-## Search operators
-
-Web search engines like Google or DuckDuckGo provide search operators to enable more elaborate web searches:
-
-- `"bar foo"` enforces an exact match of bar foo
-- `foo site:bar.com` searches for foo within bar.com
-- `foo -bar ` excludes the terms containing bar from the search
-- `foobar filetype:pdf` Searches for files of that extension
-- `(foo|bar)` searches for matches that have foo OR bar
-
-More through lists are available for popular engines like [Google](https://ahrefs.com/blog/google-advanced-search-operators/) and [DuckDuckGo](https://duck.co/help/results/syntax)
+- `Middle Button Click` pada tautan membukanya di tab baru
+- `Ctrl+T` Membuka tab baru
+- `Ctrl+Shift+T` Membuka kembali tab yang baru ditutup
+- `Ctrl+L` memilih isi bilah pencarian
+- `Ctrl+F` untuk mencari di dalam halaman web. Jika sering melakukannya, kamu
+  mungkin butuh ekstensi yang mendukung regular expression dalam pencarian.
 
 
-## Searchbar
+## Operator pencarian
 
-The searchbar is a powerful tool too. Most browsers can infer search engines from websites and will store them. By editing the keyword argument
+Mesin pencari web seperti Google atau DuckDuckGo menyediakan operator pencarian
+untuk memungkinkan pencarian web lebih rumit:
 
-- In Google Chrome they are in [chrome://settings/searchEngines](chrome://settings/searchEngines)
-- In Firefox they are in [about:preferences#search](about:preferences#search)
+- `"bar foo"` memaksa kecocokan persis bar foo
+- `foo site:bar.com` mencari foo di dalam bar.com
+- `foo -bar ` mengecualikan istilah yang mengandung bar dari pencarian
+- `foobar filetype:pdf` Mencari file dengan ekstensi itu
+- `(foo|bar)` mencari kecocokan yang memiliki foo ATAU bar
 
-For example you can make so that `y SOME SEARCH TERMS` to directly search in youtube.
-
-Moreover, if you own a domain you can setup subdomain forwards using your registrar. For instance I have mapped `https://ht.josejg.com` to this course website. That way I can just type `ht.` and the searchbar will autocomplete. Another good feature of this setup is that unlike bookmarks they will work in every browser.
-
-## Privacy extensions
-
-Nowadays surfing the web can get quite annoying due to ads and invasive due to trackers. Moreover a good adblocker not only blocks most ad content but it will also block sketchy and malicious websites since they will be included in the common blacklists. They will also reduce page load times sometimes by reducing the amount of requests performed. A couple of recommendations are:
-
-- **uBlock origin** ([Chrome](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)): block ads and trackers based on predefined rules. You should also consider taking a look at the enabled blacklists in settings since you can enable more based on your region or browsing habits. You can even install filters from [around the web](https://github.com/gorhill/uBlock/wiki/Filter-lists-from-around-the-web)
-
-- **[Privacy Badger](https://privacybadger.org/)**: detects and blocks trackers automatically. For example when you go from website to website ad companies track which sites you visit and build a profile of you
-
-- **[HTTPS everywhere](https://www.eff.org/https-everywhere)** is a wonderful extension that redirects to HTTPS version of a website automatically, if available.
-
-You can find about more addons of this kind [here](https://www.privacytools.io/privacy-browser-addons/)
-
-## Style customization
-
-Web browsers are just another piece of software running in _your machine_ and thus you usually have the last say about what they should display or how they should behave. An example of this are custom styles. Browsers determine how to render the style of a  webpage using Cascading Style Sheets often abbreviated as CSS.
-
-You can access the source code of a website by inspecting it and changing its contents and styles temporarily (this is also a reason why you should never trust webpage screenshots).
-
-If you want to permanently tell your browser to override the style settings for a webpage you will need to use an extension. Our recommendation is **[Stylus](https://github.com/openstyles/stylus)** ([Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/), [Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne?hl=en)).
+Daftar lebih lengkap tersedia untuk mesin populer seperti
+[Google](https://ahrefs.com/blog/google-advanced-search-operators/) dan
+[DuckDuckGo](https://duck.co/help/results/syntax)
 
 
-For example, we can write the following style for the class website
+## Bilah pencarian
+
+Bilah pencarian juga alat yang kuat. Kebanyakan peramban bisa menebak mesin
+pencari dari situs web dan menyimpannya. Dengan mengedit argumen kata kunci
+
+- Di Google Chrome berada di [chrome://settings/searchEngines](chrome://settings/searchEngines)
+- Di Firefox berada di [about:preferences#search](about:preferences#search)
+
+Sebagai contoh kamu bisa membuat `y BEBERAPA ISTILAH PENCARIAN` langsung mencari
+di youtube.
+
+Selain itu, jika kamu punya domain, kamu bisa mengatur forward subdomain lewat
+registrarmu. Misalnya saya memetakan `https://ht.josejg.com` ke situs kursus ini.
+Dengan begitu saya cukup mengetik `ht.` dan bilah pencarian akan melengkapi.
+Keunggulan lain setup ini adalah, tidak seperti bookmark, ia akan berfungsi di
+setiap peramban.
+
+## Ekstensi privasi
+
+Kini berselancar web bisa cukup mengganggu karena iklan dan invasif karena
+tracker. Selain itu adblocker yang bagus tidak hanya memblokir konten iklan tapi
+akan memblokir situs mencurigakan dan berbahaya karena mereka termasuk dalam
+daftar hitam umum. Mereka juga mengurangi waktu muat halaman dengan mengurangi
+jumlah permintaan. Beberapa rekomendasi:
+
+- **uBlock origin** ([Chrome](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)):
+  memblokir iklan dan tracker berdasarkan aturan bawaan. Kamu juga sebaiknya
+  melihat daftar hitam yang diaktifkan di pengaturan karena kamu bisa
+  mengaktifkan lebih banyak sesuai wilayah atau kebiasaan browsing. Kamu bahkan
+  bisa memasang filter dari [berbagai sumber](https://github.com/gorhill/uBlock/wiki/Filter-lists-from-around-the-web)
+
+- **[Privacy Badger](https://privacybadger.org/)**: mendeteksi dan memblokir
+  tracker secara otomatis. Misalnya ketika kamu berpindah situs, perusahaan iklan
+  melacak situs yang kamu kunjungi dan membuat profil tentangmu
+
+- **[HTTPS everywhere](https://www.eff.org/https-everywhere)** adalah ekstensi
+  bagus yang otomatis mengalihkan ke versi HTTPS sebuah situs, jika ada.
+
+Kamu bisa menemukan lebih banyak addon sejenis [di sini](https://www.privacytools.io/privacy-browser-addons/)
+
+## Kustomisasi gaya
+
+Peramban web adalah perangkat lunak lain yang berjalan di _mesinmu_ jadi kamu
+biasanya punya keputusan akhir tentang apa yang mereka tampilkan atau bagaimana
+berperilaku. Salah satu contohnya adalah gaya kustom. Peramban menentukan cara
+merender gaya halaman web menggunakan Cascading Style Sheets (CSS).
+
+Kamu bisa mengakses kode sumber situs web dengan menginspeksinya dan mengubah
+konten serta gayanya secara sementara (ini juga alasan kenapa kamu tak boleh
+percaya tangkapan layar halaman web).
+
+Jika ingin memberi tahu peramban untuk menimpa pengaturan gaya sebuah situs
+secara permanen, kamu perlu memakai ekstensi. Rekomendasi kami adalah
+**[Stylus](https://github.com/openstyles/stylus)** ([Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/), [Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne?hl=en)).
+
+
+Misalnya, kita bisa menulis gaya berikut untuk situs kelas
 
 
 ```css
@@ -83,14 +113,20 @@ a:link {
 }
 ```
 
-Moreover, Stylus can find styles written by other users and published in [userstyles.org](https://userstyles.org/). Most common websites have one or several dark theme stylesheets for instance. FYI, you should not use Stylish since it was shown to leak user data, more [here](https://arstechnica.com/information-technology/2018/07/stylish-extension-with-2m-downloads-banished-for-tracking-every-site-visit/)
+Selain itu, Stylus bisa menemukan gaya yang ditulis pengguna lain dan diterbitkan
+di [userstyles.org](https://userstyles.org/). Sebagian besar situs populer punya
+satu atau beberapa stylesheet tema gelap misalnya. FYI, jangan gunakan Stylish
+karena terbukti membocorkan data pengguna, lebih lanjut
+[di sini](https://arstechnica.com/information-technology/2018/07/stylish-extension-with-2m-downloads-banished-for-tracking-every-site-visit/)
 
 
-## Functionality Customization
+## Kustomisasi fungsi
 
-In the same way that you can modify the style, you can also modify the behaviour of a website by writing custom javascript and them sourcing it using a web browser extension such as [Tampermonkey](https://tampermonkey.net/)
+Seperti kamu bisa mengubah gaya, kamu juga bisa mengubah perilaku situs web
+dengan menulis javascript kustom dan memuatnya menggunakan ekstensi peramban
+seperti [Tampermonkey](https://tampermonkey.net/)
 
-For example the following script enables vim-like navigation using the J and K keys.
+Misalnya skrip berikut memungkinkan navigasi ala vim memakai tombol J dan K.
 
 ```js
 // ==UserScript==
@@ -119,14 +155,28 @@ For example the following script enables vim-like navigation using the J and K k
 })();
 ```
 
-There are also script repositories such as [OpenUserJS](https://openuserjs.org/) and [Greasy Fork](https://greasyfork.org/en). However, be warned, installing user scripts from others can be very dangerous since they can pretty much do anything such as steal your credit card numbers. Never install a script unless you read the whole thing yourself, understand what it does, and are absolutely sure that you know it isn't doing anything suspicious. Never install a script that contains minified or obfuscated code that you can't read!
+Ada juga repository skrip seperti [OpenUserJS](https://openuserjs.org/) dan
+[Greasy Fork](https://greasyfork.org/en). Namun, hati-hati, memasang user script
+dari orang lain bisa sangat berbahaya karena mereka bisa melakukan apa saja
+seperti mencuri nomor kartu kreditmu. Jangan pernah memasang skrip kecuali kamu
+membaca seluruhnya sendiri, memahami apa yang dilakukannya, dan benar-benar
+yakin tidak ada hal mencurigakan. Jangan pernah memasang skrip yang mengandung
+kode minimifikasi atau obfuscated yang tidak bisa kamu baca!
 
-## Web APIs
+## Web API
 
-It has become more and more common for webservices to offer an application interface aka web API so you can interact with the services making web requests.
-A more in depth introduction to the topic can be found [here](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction). There are [many public APIs](https://github.com/toddmotto/public-apis). Web APIs can be useful for very many reasons:
+Semakin umum layanan web menawarkan antarmuka aplikasi alias web API sehingga
+kamu bisa berinteraksi dengan layanan melalui permintaan web. Pengantar lebih
+mendalam bisa ditemukan [di sini](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction).
+Ada [banyak API publik](https://github.com/toddmotto/public-apis). Web API bisa
+berguna untuk banyak alasan:
 
-- **Retrieval**. Web APIs can quite easily provide you information such as maps, weather or what your public ip address. For instance `curl ipinfo.io` will return a JSON object with some details about your public ip, region, location, &c. With proper parsing these tools can be integrated even with command line tools. The following bash functions talks to Googles autocompletion API and returns the first ten matches.
+- **Retrieval**. Web API bisa dengan mudah memberi info seperti peta, cuaca,
+  atau alamat IP publikmu. Misalnya `curl ipinfo.io` akan mengembalikan objek
+  JSON dengan beberapa detail tentang IP publik, wilayah, lokasi, dll. Dengan
+  parsing yang tepat alat ini bisa diintegrasikan bahkan dengan alat baris
+  perintah. Fungsi bash berikut berbicara ke API autocompletion Google dan
+  mengembalikan sepuluh kecocokan pertama.
 
 ```bash
 function c() {
@@ -138,18 +188,28 @@ function c() {
 }
 ```
 
-- **Interaction**. Web API endpoints can also be used to trigger actions. These usually require some sort of authentication token that you can obtain through the service. For example performing the following
-`curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' "https://hooks.slack.com/services/$SLACK_TOKEN"` will send a `Hello, World!` message in a channel.
+- **Interaksi**. Endpoint Web API juga bisa digunakan untuk memicu aksi. Ini
+  biasanya memerlukan semacam token autentikasi yang bisa kamu dapatkan melalui
+  layanan. Misalnya menjalankan
+  `curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' "https://hooks.slack.com/services/$SLACK_TOKEN"`
+  akan mengirim pesan `Hello, World!` di sebuah kanal.
 
-- **Piping**. Since some services with web APIs are rather popular, common web API "gluing" has already been implemented and is provided with server included. This is the case for services like [If This Then That](https://ifttt.com/) and [Zapier](https://zapier.com/)
+- **Piping**. Karena beberapa layanan dengan web API cukup populer, "perekat"
+  web API umum sudah diimplementasikan dan disediakan dengan server terlampir.
+  Ini terjadi pada layanan seperti [If This Then That](https://ifttt.com/) dan
+  [Zapier](https://zapier.com/)
 
 
-## Web Automation
+## Otomasi Web
 
-Sometimes web APIs are not enough. If only reading is needed you can use a html parser like `pup` or use a library, for example python has BeautifulSoup. However if interactivity or javascript execution is required those solutions fall short. WebDriver
+Kadang web API tidak cukup. Jika hanya perlu membaca, kamu bisa memakai parser
+html seperti `pup` atau memakai library, misalnya python punya BeautifulSoup.
+Namun jika interaktivitas atau eksekusi javascript diperlukan, solusi itu kurang.
+WebDriver
 
 
-For example, the following script will save the specified url using the wayback machine simulating the interaction of typing the website.
+Misalnya, skrip berikut akan menyimpan URL tertentu menggunakan wayback machine
+dengan mensimulasikan interaksi mengetik situs.
 
 ```python
 from selenium.webdriver import Firefox
@@ -172,12 +232,17 @@ snapshot_wayback(driver, url)
 ```
 
 
-## Exercises
+## Latihan
 
-1. Edit a keyword search engine that you use often in your web browser
-1. Install the mentioned extensions. Look into how uBlock Origin/Privacy Badger can be disabled for a website. What differences do you see? Try doing it in a website with plenty of ads like YouTube.
-1. Install Stylus and write a custom style for the class website using the CSS provided. Here are some common programming characters `=   ==   ===   >=   =>   ++   /=   ~=`. What happens to them when changing the font to Fira Code? If you want to know more search for programming font ligatures.
-1. Find a web api to get the weather in your city/area.
-1. Use a WebDriver software like [Selenium](https://docs.seleniumhq.org/) to automate some repetitive manual task that you perform often with your browser.
-
-
+1. Edit mesin pencari kata kunci yang sering kamu gunakan di peramban web
+1. Pasang ekstensi yang disebutkan. Cari tahu bagaimana menonaktifkan uBlock
+   Origin/Privacy Badger untuk sebuah situs. Perbedaan apa yang kamu lihat? Coba
+   lakukan di situs dengan banyak iklan seperti YouTube.
+1. Pasang Stylus dan tulis gaya kustom untuk situs kelas menggunakan CSS yang
+   diberikan. Berikut beberapa karakter pemrograman `=   ==   ===   >=   =>   ++   /=   ~=`.
+   Apa yang terjadi pada mereka ketika mengganti font ke Fira Code? Jika ingin
+   tahu lebih lanjut cari ligature font pemrograman.
+1. Temukan web API untuk mendapatkan cuaca di kota/daerahmu.
+1. Gunakan perangkat lunak WebDriver seperti [Selenium](https://docs.seleniumhq.org/)
+   untuk mengotomatisasi tugas manual berulang yang sering kamu lakukan dengan
+   perambanmu.
